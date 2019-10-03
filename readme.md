@@ -1,0 +1,1 @@
+Simple CRUD application using Kotlin + Spring Boot, MySQL and React. Application is containerized with docker, docker-compose and docker-stacks. Can be easily deployed to local kubernetes for example. 
