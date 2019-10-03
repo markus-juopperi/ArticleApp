@@ -1,0 +1,124 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: mjuopper
+      changes:
+        - createTable:
+            tableName: author
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: mjuopper
+      changes:
+        - createTable:
+            tableName: article
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: content
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: date
+              - column:
+                  name: author_id
+                  type: int
+                  constraints:
+                     nullable: true
+                     foreignKeyName: fk_article_author
+                     references: author(id)
+
+  - changeSet:
+      id: 3
+      author: mjuopper
+      changes:
+        - insert:
+            tableName: author
+            columns:
+              - column:
+                  name: first_name
+                  value: Markus
+              - column:
+                  name: last_name
+                  value: Juopperi
+  - changeSet:
+      id: 4
+      author: mjuopper
+      changes:
+        - insert:
+            tableName: article
+            columns:
+              - column:
+                  name: title
+                  value: "Good book"
+              - column:
+                  name: content
+                  value: "Good content"
+              - column:
+                  name: author_id
+                  value: 1
+              - column:
+                  name: date
+                  value: now()
+  - changeSet:
+      id: 5
+      author: kalle
+      changes:
+        - insert:
+            tableName: author
+            columns:
+              - column:
+                  name: first_name
+                  value: Kalle
+              - column:
+                  name: last_name
+                  value: Päätalo
+  - changeSet:
+      id: 6
+      author: kalle
+      changes:
+        - insert:
+            tableName: article
+            columns:
+              - column:
+                  name: title
+                  value: "Good book2"
+              - column:
+                  name: content
+                  value: "Good content2"
+              - column:
+                  name: author_id
+                  value: 2
+              - column:
+                  name: date
+                  value: now()
