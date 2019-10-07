@@ -1,14 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Article from './components/Article';
+import ArticleList from './components/ArticleList';
+import ArticleForm from './components/ArticleForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      <Article></Article>
-      </header>
+    <div className="App row">
+      <ArticleList></ArticleList>
+      <ArticleForm></ArticleForm>
     </div>
   );
 }

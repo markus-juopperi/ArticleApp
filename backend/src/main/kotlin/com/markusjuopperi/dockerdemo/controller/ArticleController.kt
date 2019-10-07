@@ -12,7 +12,6 @@ import javax.validation.Valid
 @CrossOrigin
 @RequestMapping("/api")
 class ArticleController(private val articleRepository: ArticleRepository) {
-    @CrossOrigin
     @GetMapping("/articles")
     fun getAllArticles(): List<Article> =
             articleRepository.findAll()
@@ -21,7 +20,6 @@ class ArticleController(private val articleRepository: ArticleRepository) {
     fun createNewArticle(@Valid @RequestBody article: Article): Article =
             articleRepository.save(article)
 
-    @CrossOrigin
     @GetMapping("/articles/{id}")
     fun getArticleById(@PathVariable(value = "id") articleId: Long): ResponseEntity<Article> {
         return articleRepository.findById(articleId).map { article ->
