@@ -31,9 +31,14 @@ addItem = (event, article) =>{
       method: 'POST',
       body: JSON.stringify(article),
       headers: headers
-    });
+    })
+    .then(response => this.update(response));
     event.target.reset();
-    this.fetchDataFromApi();
+  }
+  update(response){
+    if(response.status === 200){
+      this.fetchDataFromApi();
+    }
   }
 
   fetchDataFromApi(){
