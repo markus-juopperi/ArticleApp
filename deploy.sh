@@ -1,6 +1,3 @@
-cd backend
-./gradlew clean bootJar
-cd ..
 #docker build . -t dockerdemo:latest
 #docker tag dockerdemo:latest markusjuopperi/dockerdemo:latest
 docker-compose build
